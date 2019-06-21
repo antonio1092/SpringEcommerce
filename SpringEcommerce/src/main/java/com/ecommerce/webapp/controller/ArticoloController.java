@@ -24,7 +24,7 @@ public class ArticoloController {
 	IArticoloService articolo;
 	
 	@RequestMapping(value="inserimentoarticolo", method=RequestMethod.POST)
-	public void inserimentoarticolo(HttpServletRequest request, HttpServletResponse response, Model model) throws ServletException, IOException {
+	public String inserimentoarticolo(HttpServletRequest request, HttpServletResponse response, Model model) throws ServletException, IOException {
 		Articolo a = new Articolo();
 		
 		a.setCodArticolo(Integer.parseInt(request.getParameter("CODARTICOLO")));
@@ -33,9 +33,11 @@ public class ArticoloController {
 		
 		articolo.insArticolo(a);
 		
-		RequestDispatcher rd;
-		rd = request.getRequestDispatcher("index.jsp");
-		rd.forward(request, response);
+//		RequestDispatcher rd;
+//		rd = request.getRequestDispatcher("index.jsp");
+//		rd.forward(request, response);
+		
+		return "index";
 	}
 	
 }

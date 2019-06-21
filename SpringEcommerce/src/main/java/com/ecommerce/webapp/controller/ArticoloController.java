@@ -18,12 +18,13 @@ import com.ecommerce.webapp.entity.Articolo;
 import com.ecommerce.webapp.service.IArticoloService;
 
 @Controller
+@RequestMapping(value="/inserimentoarticolo")
 public class ArticoloController {
 
 	@Autowired
 	IArticoloService articolo;
 	
-	@RequestMapping(value="inserimentoarticolo", method=RequestMethod.POST)
+	@RequestMapping(value="aggiungi", method=RequestMethod.POST)
 	public String inserimentoarticolo(HttpServletRequest request, HttpServletResponse response, Model model) throws ServletException, IOException {
 		Articolo a = new Articolo();
 		
@@ -37,7 +38,9 @@ public class ArticoloController {
 //		rd = request.getRequestDispatcher("index.jsp");
 //		rd.forward(request, response);
 		
-		return "index";
+		System.out.println(a.getCodArticolo());
+		
+		return "/";
 	}
 	
 }

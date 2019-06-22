@@ -42,6 +42,18 @@ public class Articolo {
 	public void setPrezzo(Double prezzo) {
 		this.prezzo = prezzo;
 	}
+
+	public Articolo(int codArticolo, String descrizione, Double prezzo) {
+		super();
+		this.codArticolo = codArticolo;
+		Descrizione = descrizione;
+		this.prezzo = prezzo;
+	}
+
+	public Articolo() {
+		super();
+		
+	}
 	
 	
 	

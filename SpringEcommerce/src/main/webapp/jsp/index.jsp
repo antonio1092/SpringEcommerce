@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Benvenuto</title>
 <p>BENVENUTO</p>
-<a href="inserimentoarticolo.jsp">Inserisci</a>
+<a href="jsp/inserimentoarticolo.jsp">Inserisci</a>
 </head>
 <body>
 </body>

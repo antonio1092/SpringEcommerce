@@ -38,8 +38,7 @@ public class ArticoloController {
 	
 	
 	@RequestMapping(value="/aggiungi", method=RequestMethod.POST)
-	public String inserimentoarticolo(@ModelAttribute("newArticolo") HttpServletRequest request, HttpServletResponse response, Model model) throws ServletException, IOException {
-		Articolo a = new Articolo();
+	public String inserimentoarticolo(@ModelAttribute("newArticolo") Articolo a, HttpServletRequest request, HttpServletResponse response, Model model) throws ServletException, IOException {
 		
 		a.setCodArticolo(Integer.parseInt(request.getParameter("codArticolo")));
 		a.setDescrizione(request.getParameter("Descrizione"));
@@ -53,7 +52,7 @@ public class ArticoloController {
 		
 		System.out.println(a.getCodArticolo());
 		
-		return "/";
+		return "index";
 	}
 	
 }

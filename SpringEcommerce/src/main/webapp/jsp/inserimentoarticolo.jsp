@@ -12,7 +12,7 @@
 <form:form method="POST" modelAttribute="newArticolo">
 
 <form:input id="codArticolo" path="codArticolo" type="text" placeholder="CodArticolo" />
-<form:input id="Descrizione" path="Descrizione" type="text" placeholder="Descrizione" />
+<form:input id="descrizione" path="descrizione" type="text" placeholder="Descrizione" />
 <form:input id="prezzo" path="prezzo" type="text" placeholder="Prezzo" />
 <input type="submit" value="Inserisci">
 </form:form>

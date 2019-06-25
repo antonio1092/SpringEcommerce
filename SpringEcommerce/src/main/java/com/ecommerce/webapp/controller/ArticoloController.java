@@ -41,15 +41,11 @@ public class ArticoloController {
 	public String inserimentoarticolo(@ModelAttribute("newArticolo") Articolo a, HttpServletRequest request, HttpServletResponse response, Model model) throws ServletException, IOException {
 		
 		a.setCodArticolo(Integer.parseInt(request.getParameter("codArticolo")));
-		a.setDescrizione(request.getParameter("Descrizione"));
+		a.setDescrizione(request.getParameter("descrizione"));
 		a.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
 		
 		articolo.insArticolo(a);
-		
-//		RequestDispatcher rd;
-//		rd = request.getRequestDispatcher("index.jsp");
-//		rd.forward(request, response);
-		
+			
 		System.out.println(a.getCodArticolo());
 		
 		return "index";

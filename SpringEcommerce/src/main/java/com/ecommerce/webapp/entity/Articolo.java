@@ -2,22 +2,30 @@ package com.ecommerce.webapp.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ARTICOLI")
+@Table(name="articoli")
 public class Articolo {
 
 	@Id
-	@Column(name="CODARTICOLO")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int codArticolo;
 	
-	@Column(name="DESCRIZIONE")
-	private String Descrizione;
+	@Column
+	private String descrizione;
 	
-	@Column(name="PREZZO")
+	@Column
 	private Double prezzo;
+	
+	@ManyToOne
+	@JoinColumn(name="idCategoria", referencedColumnName="id")
+	private Categoria categoria;
 
 	public int getCodArticolo() {
 		return codArticolo;
@@ -28,11 +36,11 @@ public class Articolo {
 	}
 
 	public String getDescrizione() {
-		return Descrizione;
+		return descrizione;
 	}
 
 	public void setDescrizione(String descrizione) {
-		Descrizione = descrizione;
+		this.descrizione = descrizione;
 	}
 
 	public Double getPrezzo() {
@@ -43,18 +51,12 @@ public class Articolo {
 		this.prezzo = prezzo;
 	}
 
-	public Articolo(int codArticolo, String descrizione, Double prezzo) {
-		super();
-		this.codArticolo = codArticolo;
-		Descrizione = descrizione;
-		this.prezzo = prezzo;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public Articolo() {
-		super();
-		
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
-	
-	
-	
+
 }

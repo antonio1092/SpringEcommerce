@@ -1,6 +1,7 @@
 package com.ecommerce.webapp.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -36,16 +37,20 @@ public class ArticoloController {
 	private IIvaService ivaService;
 	
 	@RequestMapping(value="/aggiungi", method= RequestMethod.GET)
-	public String insArticolo(Model model)
+	public String insArticolo(Model model, HttpServletRequest request)
 	{
 
+		ArrayList<Categoria> categorie = new ArrayList<Categoria>();
 		Articolo articolo = new Articolo();
         Categoria categoria = new Categoria();
         Iva iva = new Iva();
 		
+        categorie = categoriaService.viaualizza();
+        
 		model.addAttribute("newArticolo", articolo);
 		model.addAttribute("newCategoria", categoria);
 		model.addAttribute("newIva", iva);
+		request.setAttribute("categorie", categorie);
 		
 		return "inserimentoarticolo";
 	}
@@ -54,7 +59,7 @@ public class ArticoloController {
 	@RequestMapping(value="/aggiungi", method=RequestMethod.POST)
 	public String inserimentoarticolo(@ModelAttribute("newArticolo") Articolo a, @ModelAttribute("newCategoria") Categoria c, @ModelAttribute("newIva") Iva i,HttpServletRequest request, HttpServletResponse response, Model model) throws ServletException, IOException {
 		
-		c=categoriaService.selectById(Integer.parseInt(request.getParameter("categoria")));
+		c=categoriaService.selectById(Integer.parseInt(request.getParameter("categorie")));
 		i=ivaService.selectById(Integer.parseInt(request.getParameter("iva")));
 		
 		a.setCodArticolo(Integer.parseInt(request.getParameter("codArticolo")));

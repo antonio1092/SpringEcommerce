@@ -13,7 +13,7 @@
 <body>
 
 <%
-		ArrayList<Categoria> categorie = (ArrayList<Categoria>) request.getAttribute("categoria");
+		ArrayList<Categoria> categorie = (ArrayList<Categoria>) request.getAttribute("categorie");
 	ArrayList<Iva> listini = (ArrayList<Iva>) request.getAttribute("iva");
 	%>
 

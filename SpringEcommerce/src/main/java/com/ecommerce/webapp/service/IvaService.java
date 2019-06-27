@@ -1,5 +1,7 @@
 package com.ecommerce.webapp.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,12 @@ public class IvaService implements IIvaService {
 	public Iva selectById(int id) {
 		
 		return ivaRepository.selectById(id);
+	}
+
+	@Override
+	public ArrayList<Iva> visualizza() {
+		
+		return ivaRepository.visualizza();
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.ecommerce.webapp.repository;
 
+import java.util.ArrayList;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -19,6 +21,12 @@ public class IvaRepository implements IIvaRepository {
 	public Iva selectById(int id) {
 		
 		return (Iva) em.find(Iva.class, id);
+	}
+
+	@Override
+	public ArrayList<Iva> visualizza() {
+		
+		return (ArrayList<Iva>) em.createQuery("from Iva").getResultList();
 	}
 
 }

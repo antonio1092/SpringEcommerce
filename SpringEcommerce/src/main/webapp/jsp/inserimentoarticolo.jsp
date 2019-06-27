@@ -14,7 +14,7 @@
 
 <%
 		ArrayList<Categoria> categorie = (ArrayList<Categoria>) request.getAttribute("categorie");
-	ArrayList<Iva> listini = (ArrayList<Iva>) request.getAttribute("iva");
+	ArrayList<Iva> ive = (ArrayList<Iva>) request.getAttribute("ive");
 	%>
 
 <form:form method="POST" modelAttribute="newArticolo">
@@ -44,7 +44,32 @@
 		<%
 			}
 		%>
+<label>Iva:</label> <select
+			name="ive">
 
+			<%
+				if (ive != null) {
+			%>
+			<%
+				if (ive.size() != 0) {
+			%>
+
+			<%
+				for (Iva i : ive) {
+			%>
+			<option value="<%=i.getId()%>"><%=i.getDescrizione()%></option>
+			<%
+				}
+			%>
+		</select>
+		<%
+			}
+		%>
+		<%
+			}
+		%>
+
+<form:input id="dataCreazione" path="dataCreazione" type="date" />
 
 <input type="submit" value="Inserisci">
 </form:form>

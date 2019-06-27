@@ -1,5 +1,7 @@
 package com.ecommerce.webapp.repository;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -20,6 +22,12 @@ public class CategoriaRepository implements ICategoriaRepository {
 	public Categoria selectById(int id) {
 		
 		return (Categoria) em.find(Categoria.class, id);
+	}
+
+	@Override
+	public ArrayList<Categoria> visualizza() {
+		
+		return (ArrayList<Categoria>) em.createQuery("from Categoria").getResultList();
 	}
 
 }

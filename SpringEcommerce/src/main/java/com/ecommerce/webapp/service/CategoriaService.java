@@ -1,5 +1,7 @@
 package com.ecommerce.webapp.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,12 @@ public class CategoriaService implements ICategoriaService{
 	public Categoria selectById(int id) {
 	
 		return categoriaRepository.selectById(id);
+	}
+
+	@Override
+	public ArrayList<Categoria> viaualizza() {
+		
+		return categoriaRepository.visualizza();
 	}
 	
 

@@ -27,10 +27,7 @@ public class Articolo {
 	
 	@Column
 	private String descrizione;
-	
-	@Column
-	private Double prezzo;
-	
+		
 	@ManyToOne
 	@JoinColumn(name="idIva", referencedColumnName="id")
 	private Iva iva;
@@ -85,14 +82,6 @@ public class Articolo {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
-	}
-
-	public Double getPrezzo() {
-		return prezzo;
-	}
-
-	public void setPrezzo(Double prezzo) {
-		this.prezzo = prezzo;
 	}
 
 	public Categoria getCategoria() {

@@ -1,11 +1,17 @@
 package com.ecommerce.webapp.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -17,11 +23,13 @@ public class DettListino {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@OneToOne(fetch=FetchType.EAGER, mappedBy="codArticolo", cascade=CascadeType.ALL)
+	@ManyToOne
+	@JoinColumn(name="codArticolo", referencedColumnName="codArticolo")
 	private Articolo articolo;
 	
-	@OneToOne(fetch=FetchType.EAGER, mappedBy="id", cascade=CascadeType.ALL)
-	private Listino listino;
+	@ManyToOne
+	@JoinColumn(name="idListino", referencedColumnName="id")
+	 private Listino listino;
 	
 	private double prezzo;
 
@@ -32,6 +40,8 @@ public class DettListino {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
 
 	public Articolo getArticolo() {
 		return articolo;
